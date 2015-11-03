@@ -8,7 +8,7 @@ package mx.blogspot.webxico.model;
 import java.io.Serializable;
 import java.util.Calendar;
 
-public class Inscripciones implements Serializable {
+public class Inscripcion implements Serializable {
 
     private int cve_inscripcion;
     private CalendarioCurso cve_calendario;
@@ -18,10 +18,10 @@ public class Inscripciones implements Serializable {
     private Calendar fecha_mod;
     private boolean activo;
 
-    public Inscripciones() {
+    public Inscripcion() {
     }
 
-    public Inscripciones(int cve_inscripcion, CalendarioCurso cve_calendario, Persona cve_persona, Modalidad cve_modalidad, Calendar fecha_reg, Calendar fecha_mod, boolean activo) {
+    public Inscripcion(int cve_inscripcion, CalendarioCurso cve_calendario, Persona cve_persona, Modalidad cve_modalidad, Calendar fecha_reg, Calendar fecha_mod, boolean activo) {
         this.cve_inscripcion = cve_inscripcion;
         this.cve_calendario = cve_calendario;
         this.cve_persona = cve_persona;
