@@ -1,9 +1,9 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     02/11/2015 23:33:36                          */
+/* Created on:     03/11/2015 16:07:54                          */
 /*==============================================================*/
 
-
+/*
 drop index INDEX_1 on ALUMNOS;
 
 drop table if exists ALUMNOS;
@@ -183,6 +183,7 @@ drop table if exists TIPOS_CONTENIDO;
 drop index INDEX_1 on TIPOS_MEDIOS_COMUNICACION;
 
 drop table if exists TIPOS_MEDIOS_COMUNICACION;
+/*
 
 /*==============================================================*/
 /* Table: ALUMNOS                                               */
@@ -828,7 +829,7 @@ create index INDEX_1 on MUNICIPIOS
 /*==============================================================*/
 create table PERSONAS
 (
-   CVE_PERSONA          int not null,
+   CVE_PERSONA          int not null auto_increment,
    NOMBRE               varchar(50),
    AP_PATERNO           varchar(50),
    AP_MATERNO           varchar(50),
