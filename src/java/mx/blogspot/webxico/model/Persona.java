@@ -6,7 +6,7 @@
 package mx.blogspot.webxico.model;
 
 import java.io.Serializable;
-import java.util.Calendar;
+import java.util.Date;
 
 public class Persona implements Serializable{
 
@@ -15,15 +15,15 @@ public class Persona implements Serializable{
     private String ap_paterno;
     private String ap_materno;
     private boolean sexo;
-    private Calendar fecha_nacimiento;
-    private Calendar fecha_reg;
-    private Calendar fecha_mod;
+    private Date fecha_nacimiento;
+    private Date fecha_reg;
+    private Date fecha_mod;
     private boolean activo;
 
     public Persona() {
     }
 
-    public Persona(int cve_persona, String nombre, String ap_paterno, String ap_materno, boolean sexo, Calendar fecha_nacimiento, Calendar fecha_reg, Calendar fecha_mod, boolean activo) {
+    public Persona(int cve_persona, String nombre, String ap_paterno, String ap_materno, boolean sexo, Date fecha_nacimiento, Date fecha_reg, Date fecha_mod, boolean activo) {
         this.cve_persona = cve_persona;
         this.nombre = nombre;
         this.ap_paterno = ap_paterno;
@@ -75,27 +75,27 @@ public class Persona implements Serializable{
         this.sexo = sexo;
     }
 
-    public Calendar getFecha_nacimiento() {
+    public Date getFecha_nacimiento() {
         return fecha_nacimiento;
     }
 
-    public void setFecha_nacimiento(Calendar fecha_nacimiento) {
+    public void setFecha_nacimiento(Date fecha_nacimiento) {
         this.fecha_nacimiento = fecha_nacimiento;
     }
 
-    public Calendar getFecha_reg() {
+    public Date getFecha_reg() {
         return fecha_reg;
     }
 
-    public void setFecha_reg(Calendar fecha_reg) {
+    public void setFecha_reg(Date fecha_reg) {
         this.fecha_reg = fecha_reg;
     }
 
-    public Calendar getFecha_mod() {
+    public Date getFecha_mod() {
         return fecha_mod;
     }
 
-    public void setFecha_mod(Calendar fecha_mod) {
+    public void setFecha_mod(Date fecha_mod) {
         this.fecha_mod = fecha_mod;
     }
 

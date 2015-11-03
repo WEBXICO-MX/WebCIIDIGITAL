@@ -5,7 +5,7 @@
  */
 package mx.blogspot.webxico.model;
 
-import java.util.Calendar;
+import java.util.Date;
 
 public class CursoExamenFinal extends Examen {
 
@@ -14,7 +14,7 @@ public class CursoExamenFinal extends Examen {
     public CursoExamenFinal() {
     }
 
-    public CursoExamenFinal(Curso cve_curso, int cve_examen, String nombre, String descripcion, Calendar fecha_reg, Calendar fecha_mod, boolean activo) {
+    public CursoExamenFinal(Curso cve_curso, int cve_examen, String nombre, String descripcion, Date fecha_reg, Date fecha_mod, boolean activo) {
         super(cve_examen, nombre, descripcion, fecha_reg, fecha_mod, activo);
         this.cve_curso = cve_curso;
     }

@@ -5,7 +5,7 @@
  */
 package mx.blogspot.webxico.model;
 
-import java.util.Calendar;
+import java.util.Date;
 
 public class TcRespuesta extends Respuesta {
 
@@ -14,7 +14,7 @@ public class TcRespuesta extends Respuesta {
     public TcRespuesta() {
     }
 
-    public TcRespuesta(TcPregunta cve_pregunta, int cve_respuesta, String descripcion, boolean correcta, Calendar fecha_reg, Calendar fecha_mod, boolean activo) {
+    public TcRespuesta(TcPregunta cve_pregunta, int cve_respuesta, String descripcion, boolean correcta, Date fecha_reg, Date fecha_mod, boolean activo) {
         super(cve_respuesta, descripcion, correcta, fecha_reg, fecha_mod, activo);
         this.cve_pregunta = cve_pregunta;
     }

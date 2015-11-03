@@ -6,7 +6,7 @@
 package mx.blogspot.webxico.model;
 
 import java.io.Serializable;
-import java.util.Calendar;
+import java.util.Date;
 
 public class Domicilio implements Serializable {
 
@@ -16,14 +16,14 @@ public class Domicilio implements Serializable {
     private String colonia;
     private String calle;
     private String numero;
-    private Calendar fecha_reg;
-    private Calendar fecha_mod;
+    private Date fecha_reg;
+    private Date fecha_mod;
     private boolean activo;
 
     public Domicilio() {
     }
 
-    public Domicilio(int cve_domicilio, Persona cve_persona, Municipio cve_municipio, String colonia, String calle, String numero, Calendar fecha_reg, Calendar fecha_mod, boolean activo) {
+    public Domicilio(int cve_domicilio, Persona cve_persona, Municipio cve_municipio, String colonia, String calle, String numero, Date fecha_reg, Date fecha_mod, boolean activo) {
         this.cve_domicilio = cve_domicilio;
         this.cve_persona = cve_persona;
         this.cve_municipio = cve_municipio;
@@ -83,19 +83,19 @@ public class Domicilio implements Serializable {
         this.numero = numero;
     }
 
-    public Calendar getFecha_reg() {
+    public Date getFecha_reg() {
         return fecha_reg;
     }
 
-    public void setFecha_reg(Calendar fecha_reg) {
+    public void setFecha_reg(Date fecha_reg) {
         this.fecha_reg = fecha_reg;
     }
 
-    public Calendar getFecha_mod() {
+    public Date getFecha_mod() {
         return fecha_mod;
     }
 
-    public void setFecha_mod(Calendar fecha_mod) {
+    public void setFecha_mod(Date fecha_mod) {
         this.fecha_mod = fecha_mod;
     }
 

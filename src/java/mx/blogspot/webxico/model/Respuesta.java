@@ -6,21 +6,21 @@
 package mx.blogspot.webxico.model;
 
 import java.io.Serializable;
-import java.util.Calendar;
+import java.util.Date;
 
 public class Respuesta implements Serializable {
 
     private int cve_respuesta;
     private String descripcion;
     private boolean correcta;
-    private Calendar fecha_reg;
-    private Calendar fecha_mod;
+    private Date fecha_reg;
+    private Date fecha_mod;
     private boolean activo;
 
     public Respuesta() {
     }
 
-    public Respuesta(int cve_respuesta, String descripcion, boolean correcta, Calendar fecha_reg, Calendar fecha_mod, boolean activo) {
+    public Respuesta(int cve_respuesta, String descripcion, boolean correcta, Date fecha_reg, Date fecha_mod, boolean activo) {
         this.cve_respuesta = cve_respuesta;
         this.descripcion = descripcion;
         this.correcta = correcta;
@@ -53,19 +53,19 @@ public class Respuesta implements Serializable {
         this.correcta = correcta;
     }
 
-    public Calendar getFecha_reg() {
+    public Date getFecha_reg() {
         return fecha_reg;
     }
 
-    public void setFecha_reg(Calendar fecha_reg) {
+    public void setFecha_reg(Date fecha_reg) {
         this.fecha_reg = fecha_reg;
     }
 
-    public Calendar getFecha_mod() {
+    public Date getFecha_mod() {
         return fecha_mod;
     }
 
-    public void setFecha_mod(Calendar fecha_mod) {
+    public void setFecha_mod(Date fecha_mod) {
         this.fecha_mod = fecha_mod;
     }
 

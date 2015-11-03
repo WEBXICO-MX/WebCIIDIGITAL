@@ -6,24 +6,24 @@
 package mx.blogspot.webxico.model;
 
 import java.io.Serializable;
-import java.util.Calendar;
+import java.util.Date;
 
 public class CalendarioCurso implements Serializable {
 
     private int cve_calendario;
     private Curso cve_curso;
     private Instructor cve_instructor;
-    private Calendar fecha_inicio;
-    private Calendar fecha_fin;
+    private Date fecha_inicio;
+    private Date fecha_fin;
     private double costo;
-    private Calendar fecha_reg;
-    private Calendar fecha_mod;
+    private Date fecha_reg;
+    private Date fecha_mod;
     private boolean activo;
 
     public CalendarioCurso() {
     }
 
-    public CalendarioCurso(int cve_calendario, Curso cve_curso, Instructor cve_instructor, Calendar fecha_inicio, Calendar fecha_fin, double costo, Calendar fecha_reg, Calendar fecha_mod, boolean activo) {
+    public CalendarioCurso(int cve_calendario, Curso cve_curso, Instructor cve_instructor, Date fecha_inicio, Date fecha_fin, double costo, Date fecha_reg, Date fecha_mod, boolean activo) {
         this.cve_calendario = cve_calendario;
         this.cve_curso = cve_curso;
         this.cve_instructor = cve_instructor;
@@ -59,19 +59,19 @@ public class CalendarioCurso implements Serializable {
         this.cve_instructor = cve_instructor;
     }
 
-    public Calendar getFecha_inicio() {
+    public Date getFecha_inicio() {
         return fecha_inicio;
     }
 
-    public void setFecha_inicio(Calendar fecha_inicio) {
+    public void setFecha_inicio(Date fecha_inicio) {
         this.fecha_inicio = fecha_inicio;
     }
 
-    public Calendar getFecha_fin() {
+    public Date getFecha_fin() {
         return fecha_fin;
     }
 
-    public void setFecha_fin(Calendar fecha_fin) {
+    public void setFecha_fin(Date fecha_fin) {
         this.fecha_fin = fecha_fin;
     }
 
@@ -83,19 +83,19 @@ public class CalendarioCurso implements Serializable {
         this.costo = costo;
     }
 
-    public Calendar getFecha_reg() {
+    public Date getFecha_reg() {
         return fecha_reg;
     }
 
-    public void setFecha_reg(Calendar fecha_reg) {
+    public void setFecha_reg(Date fecha_reg) {
         this.fecha_reg = fecha_reg;
     }
 
-    public Calendar getFecha_mod() {
+    public Date getFecha_mod() {
         return fecha_mod;
     }
 
-    public void setFecha_mod(Calendar fecha_mod) {
+    public void setFecha_mod(Date fecha_mod) {
         this.fecha_mod = fecha_mod;
     }
 

@@ -6,21 +6,21 @@
 package mx.blogspot.webxico.model;
 
 import java.io.Serializable;
-import java.util.Calendar;
+import java.util.Date;
 
 public class MedioComunicacion implements Serializable {
 
     private int cve_medio;
     private Persona cve_persona;
     private TipoMedioComunicacion cve_tipo;
-    private Calendar fecha_reg;
-    private Calendar fecha_mod;
+    private Date fecha_reg;
+    private Date fecha_mod;
     private boolean activo;
 
     public MedioComunicacion() {
     }
 
-    public MedioComunicacion(int cve_medio, Persona cve_persona, TipoMedioComunicacion cve_tipo, Calendar fecha_reg, Calendar fecha_mod, boolean activo) {
+    public MedioComunicacion(int cve_medio, Persona cve_persona, TipoMedioComunicacion cve_tipo, Date fecha_reg, Date fecha_mod, boolean activo) {
         this.cve_medio = cve_medio;
         this.cve_persona = cve_persona;
         this.cve_tipo = cve_tipo;
@@ -53,19 +53,19 @@ public class MedioComunicacion implements Serializable {
         this.cve_tipo = cve_tipo;
     }
 
-    public Calendar getFecha_reg() {
+    public Date getFecha_reg() {
         return fecha_reg;
     }
 
-    public void setFecha_reg(Calendar fecha_reg) {
+    public void setFecha_reg(Date fecha_reg) {
         this.fecha_reg = fecha_reg;
     }
 
-    public Calendar getFecha_mod() {
+    public Date getFecha_mod() {
         return fecha_mod;
     }
 
-    public void setFecha_mod(Calendar fecha_mod) {
+    public void setFecha_mod(Date fecha_mod) {
         this.fecha_mod = fecha_mod;
     }
 

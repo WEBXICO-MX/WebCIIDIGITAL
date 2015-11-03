@@ -6,7 +6,7 @@
 package mx.blogspot.webxico.model;
 
 import java.io.Serializable;
-import java.util.Calendar;
+import java.util.Date;
 
 public class Especializacion implements Serializable {
 
@@ -14,14 +14,14 @@ public class Especializacion implements Serializable {
     private String nombre;
     private String descripcion;
     private String img;
-    private Calendar fecha_reg;
-    private Calendar fecha_mod;
+    private Date fecha_reg;
+    private Date fecha_mod;
     private boolean activo;
 
     public Especializacion() {
     }
 
-    public Especializacion(int cve_especializacion, String nombre, String descripcion, String img, Calendar fecha_reg, Calendar fecha_mod, boolean activo) {
+    public Especializacion(int cve_especializacion, String nombre, String descripcion, String img, Date fecha_reg, Date fecha_mod, boolean activo) {
         this.cve_especializacion = cve_especializacion;
         this.nombre = nombre;
         this.descripcion = descripcion;
@@ -63,19 +63,19 @@ public class Especializacion implements Serializable {
         this.img = img;
     }
 
-    public Calendar getFecha_reg() {
+    public Date getFecha_reg() {
         return fecha_reg;
     }
 
-    public void setFecha_reg(Calendar fecha_reg) {
+    public void setFecha_reg(Date fecha_reg) {
         this.fecha_reg = fecha_reg;
     }
 
-    public Calendar getFecha_mod() {
+    public Date getFecha_mod() {
         return fecha_mod;
     }
 
-    public void setFecha_mod(Calendar fecha_mod) {
+    public void setFecha_mod(Date fecha_mod) {
         this.fecha_mod = fecha_mod;
     }
 

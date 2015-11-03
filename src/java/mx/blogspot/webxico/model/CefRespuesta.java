@@ -5,7 +5,7 @@
  */
 package mx.blogspot.webxico.model;
 
-import java.util.Calendar;
+import java.util.Date;
 
 public class CefRespuesta extends Respuesta {
 
@@ -14,7 +14,7 @@ public class CefRespuesta extends Respuesta {
     public CefRespuesta() {
     }
 
-    public CefRespuesta(CefPregunta cve_pregunta, int cve_respuesta, String descripcion, boolean correcta, Calendar fecha_reg, Calendar fecha_mod, boolean activo) {
+    public CefRespuesta(CefPregunta cve_pregunta, int cve_respuesta, String descripcion, boolean correcta, Date fecha_reg, Date fecha_mod, boolean activo) {
         super(cve_respuesta, descripcion, correcta, fecha_reg, fecha_mod, activo);
         this.cve_pregunta = cve_pregunta;
     }
