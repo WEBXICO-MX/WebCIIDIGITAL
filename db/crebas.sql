@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     04/11/2015 8:26:19                           */
+/* Created on:     04/11/2015 14:29:00                          */
 /*==============================================================*/
 
 
@@ -834,6 +834,7 @@ create table PERSONAS
    AP_MATERNO           varchar(50),
    SEXO                 varchar(1),
    FECHA_NACIMIENTO     datetime,
+   FOTO                 varchar(20),
    FECHA_REG            datetime,
    FECHA_MOD            datetime,
    ACTIVO               bit,
