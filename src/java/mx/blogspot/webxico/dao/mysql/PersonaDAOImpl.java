@@ -11,7 +11,6 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -24,26 +23,41 @@ public class PersonaDAOImpl implements PersonaDAO {
     public boolean saveOrUpdate(Persona persona) {
         boolean grabo = false;
         Connection conn = MySQLDAOFactory.createConnection();
+        String q = "";
+        PreparedStatement ps = null;
         try {
+            if (persona.getCve_persona() != 0) {
+                q = "UPDATE personas SET nombre = ?, ap_paterno = ?, ap_materno = ?, sexo = ?, fecha_nacimiento = ?,foto = ?,fecha_mod = ?,activo = ? WHERE cve_persona = ?";
+                System.out.println(q+","+persona);
+                ps = conn.prepareStatement(q);
+                ps.setString(1, persona.getNombre());
+                ps.setString(2, persona.getAp_paterno());
+                ps.setString(3, persona.getAp_materno());
+                ps.setString(4, persona.getSexo());
+                ps.setDate(5, new java.sql.Date(persona.getFecha_nacimiento().getTime()));
+                ps.setString(6, persona.getFoto());
+                ps.setObject(7, new java.sql.Timestamp(new java.util.Date().getTime()));
+                ps.setBoolean(8, persona.isActivo());
+                ps.setInt(9, persona.getCve_persona());
+            } else {
+                q = "INSERT INTO personas (nombre, ap_paterno, ap_materno, sexo, fecha_nacimiento, foto,fecha_reg,fecha_mod,activo) VALUES (?, ?, ?, ?,?,NULL,?,NULL,?)";
 
-            Calendar calendar = Calendar.getInstance();
-            java.sql.Date startDate = new java.sql.Date(calendar.getTime().getTime());
+                ps = conn.prepareStatement(q);
+                ps.setString(1, persona.getNombre());
+                ps.setString(2, persona.getAp_paterno());
+                ps.setString(3, persona.getAp_materno());
+                ps.setString(4, persona.getSexo());
+                ps.setDate(5, new java.sql.Date(persona.getFecha_nacimiento().getTime()));
+                ps.setObject(6, new java.sql.Timestamp(new java.util.Date().getTime()));
+                ps.setBoolean(7, persona.isActivo());
+            }
 
-            String query = " INSERT INTO personas (nombre, ap_paterno, ap_materno, sexo, fecha_nacimiento, fecha_reg,fecha_mod,activo) VALUES (?, ?, ?, ?,?,?,NULL,?)";
-
-            // create the mysql insert preparedstatement
-            PreparedStatement preparedStmt = conn.prepareStatement(query);
-            preparedStmt.setString(1, persona.getNombre());
-            preparedStmt.setString(2, persona.getAp_paterno());
-            preparedStmt.setString(3, persona.getAp_materno());
-            preparedStmt.setBoolean(4, persona.isSexo());
-            preparedStmt.setDate(5, startDate);
-            preparedStmt.setDate(6, startDate);
-            preparedStmt.setBoolean(7, persona.isActivo());
-
-            // execute the preparedstatement
-            grabo = preparedStmt.execute();
-            preparedStmt.close();
+            ps.execute();
+            int count = ps.getUpdateCount();
+            if (count > 0) {
+                grabo = true;
+            }
+            ps.close();
 
         } catch (Exception e) {
             System.err.println("Got an exception!");
@@ -66,21 +80,19 @@ public class PersonaDAOImpl implements PersonaDAO {
         Connection conn = null;
         try {
             conn = MySQLDAOFactory.createConnection();
-            String query = "SELECT * FROM personas ORDER BY nombre, ap_paterno, ap_materno";
-            // create the java statement
+            String q = "SELECT * FROM personas ORDER BY nombre, ap_paterno, ap_materno";
+
             Statement st = conn.createStatement();
 
-            // execute the query, and get a java resultset
-            ResultSet rs = st.executeQuery(query);
+            ResultSet rs = st.executeQuery(q);
 
-            // iterate through the java resultset
             while (rs.next()) {
                 Persona p = new Persona();
                 p.setCve_persona(rs.getInt("cve_persona"));
                 p.setNombre(rs.getString("nombre"));
                 p.setAp_paterno(rs.getString("ap_paterno"));
                 p.setAp_materno(rs.getString("ap_materno"));
-                p.setSexo(rs.getBoolean("sexo"));
+                p.setSexo(rs.getString("sexo"));
                 p.setFecha_nacimiento(rs.getDate("fecha_nacimiento"));
                 p.setFecha_reg(rs.getDate("fecha_reg"));
                 p.setFecha_mod(rs.getDate("fecha_mod"));
@@ -112,19 +124,19 @@ public class PersonaDAOImpl implements PersonaDAO {
         Connection conn = MySQLDAOFactory.createConnection();
         try {
 
-            String query = "SELECT * FROM personas WHERE cve_persona = ?";
+            String q = "SELECT * FROM personas WHERE cve_persona = ?";
 
-            PreparedStatement preparedStmt = conn.prepareStatement(query);
-            preparedStmt.setInt(1, id);
+            PreparedStatement ps = conn.prepareStatement(q);
+            ps.setInt(1, id);
 
-            ResultSet rs = preparedStmt.executeQuery();
+            ResultSet rs = ps.executeQuery();
 
             while (rs.next()) {
-                persona.setCve_persona(rs.getInt("id"));
+                persona.setCve_persona(rs.getInt("cve_persona"));
                 persona.setNombre(rs.getString("nombre"));
                 persona.setAp_paterno(rs.getString("ap_paterno"));
                 persona.setAp_materno(rs.getString("ap_materno"));
-                persona.setSexo(rs.getBoolean("sexo"));
+                persona.setSexo(rs.getString("sexo"));
                 persona.setFecha_nacimiento(rs.getDate("fecha_nacimiento"));
                 persona.setFecha_reg(rs.getDate("fecha_reg"));
                 persona.setFecha_mod(rs.getDate("fecha_mod"));
@@ -150,17 +162,13 @@ public class PersonaDAOImpl implements PersonaDAO {
     public void remove(int id) {
         Connection conn = MySQLDAOFactory.createConnection();
         try {
+            String q = " DELETE FROM personas WHERE cve_persona = ?";
 
-            Calendar calendar = Calendar.getInstance();
-            java.sql.Date startDate = new java.sql.Date(calendar.getTime().getTime());
+            PreparedStatement ps = conn.prepareStatement(q);
+            ps.setInt(1, id);
 
-            String query = " DELETE FROM personas WHERE cve_persona = ?";
-
-            PreparedStatement preparedStmt = conn.prepareStatement(query);
-            preparedStmt.setInt(1, id);
-
-            preparedStmt.execute();
-            preparedStmt.close();
+            ps.execute();
+            ps.close();
 
         } catch (Exception e) {
             System.err.println("Got an exception!");

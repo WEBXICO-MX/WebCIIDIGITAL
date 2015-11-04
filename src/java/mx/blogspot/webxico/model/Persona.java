@@ -126,6 +126,10 @@ public class Persona implements Serializable {
     public void setActivo(boolean activo) {
         this.activo = activo;
     }
+    
+    public String getNombre_completo()
+    { return this.nombre+" "+this.ap_paterno+" "+this.ap_materno;
+    }
 
     @Override
     public String toString() {

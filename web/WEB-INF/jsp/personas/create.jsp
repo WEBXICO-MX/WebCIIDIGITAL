@@ -13,6 +13,7 @@
         <title>Persona(s)</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="shortcut icon" type="image/png" href="${pageContext.request.contextPath}/img/favicon.png"/>
         <link href="${pageContext.request.contextPath}/twbs/bootstrap-3.3.5-dist/css/bootstrap.min.css" rel="stylesheet" type="text/css"/>
         <sj:head/>
     </head>
@@ -52,52 +53,50 @@
             <div class="row">
                 <div class="col-md-6 col-md-offset-3">
                     <div class="well bs-component">
-                        <form id="frm_captura" name="frm_captura" class="form-horizontal" method="post">
+                        <s:form action="save" namespace="/base/personas" method="post" name="frm_captura" id="frm_captura" class="form-horizontal">
                             <fieldset>
                                 <legend>Captura</legend>
                                 <div class="form-group">
                                     <label for="cve_persona" class="col-lg-2 control-label">ID Persona</label>
                                     <div class="col-lg-10">
-                                        <input type="text" class="form-control" id="cve_persona" name="cve_persona" placeholder="ID Persona" readonly>
+                                        <input type="text" class="form-control" id="cve_persona" name="cve_persona" placeholder="ID Persona" readonly tabindex="1">
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="nombre" class="col-lg-2 control-label">Nombre</label>
                                     <div class="col-lg-10">
-                                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre">                                       
+                                        <input type="text" class="form-control" id="nombre" name="nombre" placeholder="Nombre" tabindex="2">                                       
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="ap_paterno" class="col-lg-2 control-label">Apellido paterno</label>
                                     <div class="col-lg-10">
-                                        <input type="text" class="form-control" id="ap_paterno" name="ap_paterno" placeholder="Apellido paterno">                                       
+                                        <input type="text" class="form-control" id="ap_paterno" name="ap_paterno" placeholder="Apellido paterno" tabindex="3">                                       
                                     </div>
                                 </div>
                                 <div class="form-group">
                                     <label for="ap_materno" class="col-lg-2 control-label">Apellido materno</label>
                                     <div class="col-lg-10">
-                                        <input type="text" class="form-control" id="ap_materno" name="ap_materno" placeholder="Apellido materno">                                       
+                                        <input type="text" class="form-control" id="ap_materno" name="ap_materno" placeholder="Apellido materno" tabindex="4">                                       
                                     </div>
                                 </div>
                                 <div class="form-group">
-                                    <label for="txtFechaNacimiento">Fecha de nacimiento:</label>
-                                    <sj:datepicker name="registro.fecha_nacimiento" id="txtFechaNacimiento" label="Select a Date" displayFormat="dd/mm/yy" readonly="true" tabindex="7" size="20" maxlength="17" changeMonth="true" changeYear="true" yearRange="-100:+0"/>
+                                    <label for="fecha_nacimiento">Fecha de nacimiento:</label>
+                                    <sj:datepicker name="fecha_nacimiento" id="fecha_nacimiento" label="Select a Date" displayFormat="dd/mm/yy" readonly="true" tabindex="5" size="20" maxlength="17" changeMonth="true" changeYear="true" yearRange="-100:+0"/>
                                 </div>
                                 <div class="form-group">
-                                    <s:radio label="Sexo" name="sexo" list="#{'M':'Hombre','F':'Mujer'}" tabindex="8"/>
+                                    <s:radio label="Sexo" name="sexo" list="#{'H':'Hombre','M':'Mujer'}" tabindex="6"/>
                                 </div>
                                 <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox" id="cbxActivo" name="cbxActivo"> Activo
-                                    </label>
+                                        <s:checkbox name="activo" id="activo" fieldValue="true" label="Activo" tabindex="7" />
                                 </div>
                                 <div class="form-group">
                                     <div class="col-lg-12">
-                                         <s:submit cssClass="btn btn-primary" value="Enviar"></s:submit> 
+                                        <s:submit cssClass="btn btn-primary" value="Enviar" tabindex="8"></s:submit> 
+                                        </div>
                                     </div>
-                                </div>
-                            </fieldset>
-                        </form>
+                                </fieldset>
+                        </s:form>
                     </div>
                 </div>
             </div>
