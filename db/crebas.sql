@@ -1,9 +1,9 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     03/11/2015 16:07:54                          */
+/* Created on:     04/11/2015 8:26:19                           */
 /*==============================================================*/
 
-/*
+
 drop index INDEX_1 on ALUMNOS;
 
 drop table if exists ALUMNOS;
@@ -183,7 +183,6 @@ drop table if exists TIPOS_CONTENIDO;
 drop index INDEX_1 on TIPOS_MEDIOS_COMUNICACION;
 
 drop table if exists TIPOS_MEDIOS_COMUNICACION;
-/*
 
 /*==============================================================*/
 /* Table: ALUMNOS                                               */
@@ -210,7 +209,7 @@ create index INDEX_1 on ALUMNOS
 /*==============================================================*/
 create table CALENDARIOS_CURSOS
 (
-   CVE_CALENDARIO       int not null,
+   CVE_CALENDARIO       int not null auto_increment,
    CVE_CURSO            int,
    CVE_INSTRUCTOR       int,
    FECHA_INICIO         datetime,
@@ -303,7 +302,7 @@ create index INDEX_1 on CEF_RESPUESTAS
 /*==============================================================*/
 create table CONTENIDOS_TEMAS
 (
-   CVE_CONTENIDO        int not null,
+   CVE_CONTENIDO        int not null auto_increment,
    CVE_TEMA             int,
    CVE_TIPO             int,
    VALOR                varchar(50),
@@ -342,7 +341,7 @@ create index INDEX_1 on CONTENIDOS_TEMAS
 /*==============================================================*/
 create table CURSOS
 (
-   CVE_CURSO            int not null,
+   CVE_CURSO            int not null auto_increment,
    NOMBRE               varchar(50),
    DESCRIPCION          varchar(100),
    IMG                  varchar(20),
@@ -400,7 +399,7 @@ create index INDEX_1 on CURSOS_EXAMEN_FINAL
 /*==============================================================*/
 create table DOMICILIOS
 (
-   CVE_DOMICILIO        int not null,
+   CVE_DOMICILIO        int not null auto_increment,
    CVE_PERSONA          int,
    CVE_MUNICIPIO        int,
    CVE_ESTADO           int,
@@ -458,7 +457,7 @@ create index INDEX_1 on DOMICILIOS
 /*==============================================================*/
 create table ESPECIALIZACIONES
 (
-   CVE_ESPECIALIZACION  int not null,
+   CVE_ESPECIALIZACION  int not null auto_increment,
    NOMBRE               varchar(50),
    DESCRIPCION          varchar(100),
    IMG                  varchar(20),
@@ -536,7 +535,7 @@ create index INDEX_1 on ESTADOS
 /*==============================================================*/
 create table EXAMENES
 (
-   CVE_EXAMEN           int not null,
+   CVE_EXAMEN           int not null auto_increment,
    NOMBRE               varchar(50),
    DESCRIPCION          varchar(100),
    FECHA_REG            datetime,
@@ -558,7 +557,7 @@ create index INDEX_1 on EXAMENES
 /*==============================================================*/
 create table INSCRIPCIONES
 (
-   CVE_INSCRIPCION      int not null,
+   CVE_INSCRIPCION      int not null auto_increment,
    CVE_CALENDARIO       int,
    CVE_PERSONA          int,
    CVE_MODALIDAD        int,
@@ -625,7 +624,7 @@ create index INDEX_1 on INSTRUCTORES
 /*==============================================================*/
 create table MEDIOS_COMUNICACION
 (
-   CVE_MEDIO            int not null,
+   CVE_MEDIO            int not null auto_increment,
    CVE_PERSONA          int,
    CVE_TIPO             int,
    VALOR                varchar(30),
@@ -716,7 +715,7 @@ create index INDEX_1 on ME_RESPUESTAS
 /*==============================================================*/
 create table MODALIDADES
 (
-   CVE_MODALIDAD        int not null,
+   CVE_MODALIDAD        int not null auto_increment,
    NOMBRE               varchar(50),
    FECHA_REG            datetime,
    FECHA_MOD            datetime,
@@ -737,7 +736,7 @@ create index INDEX_1 on MODALIDADES
 /*==============================================================*/
 create table MODULOS
 (
-   CVE_MODULO           int not null,
+   CVE_MODULO           int not null auto_increment,
    CVE_CURSO            int,
    NOMBRE               varchar(50),
    IMG                  varchar(20),
@@ -833,7 +832,7 @@ create table PERSONAS
    NOMBRE               varchar(50),
    AP_PATERNO           varchar(50),
    AP_MATERNO           varchar(50),
-   SEXO                 bit,
+   SEXO                 varchar(1),
    FECHA_NACIMIENTO     datetime,
    FECHA_REG            datetime,
    FECHA_MOD            datetime,
@@ -864,7 +863,7 @@ create index INDEX_1 on PERSONAS
 /*==============================================================*/
 create table PREGUNTAS
 (
-   CVE_PREGUNTA         int not null,
+   CVE_PREGUNTA         int not null auto_increment,
    DESCRIPCION          varchar(100),
    ABIERTA              bit,
    FECHA_REG            datetime,
@@ -886,7 +885,7 @@ create index INDEX_1 on PREGUNTAS
 /*==============================================================*/
 create table RESPUESTAS
 (
-   CVE_RESPUESTA        int not null,
+   CVE_RESPUESTA        int not null auto_increment,
    DESCRIPCION          varchar(50),
    CORRECTA             bit,
    FECHA_REG            datetime,
@@ -960,7 +959,7 @@ create index INDEX_1 on TC_RESPUESTAS
 /*==============================================================*/
 create table TEMAS
 (
-   CVE_TEMA             int not null,
+   CVE_TEMA             int not null auto_increment,
    CVE_MODULO           int,
    NOMBRE               varchar(50),
    DESCRIPCION          varchar(100),
@@ -1017,7 +1016,7 @@ create index INDEX_1 on TEMAS_EXAMENES
 /*==============================================================*/
 create table TIPOS_CONTENIDO
 (
-   CVE_TIPO             int not null,
+   CVE_TIPO             int not null auto_increment,
    NOMBRE               varchar(20),
    IMG                  varchar(20),
    FECHA_REG            datetime,
@@ -1039,7 +1038,7 @@ create index INDEX_1 on TIPOS_CONTENIDO
 /*==============================================================*/
 create table TIPOS_MEDIOS_COMUNICACION
 (
-   CVE_TIPO             int not null,
+   CVE_TIPO             int not null auto_increment,
    NOMBRE               varchar(20),
    IMG                  varchar(20),
    FECHA_REG            datetime,
