@@ -1,0 +1,43 @@
+<!DOCTYPE struts PUBLIC
+		"-//Apache Software Foundation//DTD Struts Configuration 2.5//EN"
+		"http://struts.apache.org/dtds/struts-2.5.dtd">
+<struts>
+    <package name="base" namespace="/base/personas" extends="struts-default">
+        <action name="" class="mx.blogspot.webxico.action.PersonaAction">
+            <result name="success" type="dispatcher">/WEB-INF/jsp/personas/index.jsp</result>
+        </action>
+        <action name="index" class="mx.blogspot.webxico.action.PersonaAction">
+            <result name="success" type="dispatcher">/WEB-INF/jsp/personas/index.jsp</result>
+        </action>
+        <action name="create" class="mx.blogspot.webxico.action.PersonaAction" method="create">
+            <result name="success" type="dispatcher">/WEB-INF/jsp/personas/create.jsp</result>
+        </action>
+        <action name="save" class="mx.blogspot.webxico.action.PersonaAction" method="saveOrUpdate">
+            <result name="success" type="redirectAction">index</result>
+            <result name="error" type="dispatcher">/WEB-INF/jsp/errors/500.jsp</result>
+        </action>
+        <action name="edit" class="mx.blogspot.webxico.action.PersonaAction" method="edit">
+            <result name="success" type="dispatcher">/WEB-INF/jsp/personas/edit.jsp</result>
+        </action>
+        <action name="show" class="mx.blogspot.webxico.action.PersonaAction" method="show">
+            <result name="success" type="dispatcher">/WEB-INF/jsp/personas/show.jsp</result>
+        </action>
+        <action name="delete" class="mx.blogspot.webxico.action.PersonaAction" method="remove">
+            <result name="success" type="redirectAction">index</result>
+            <result name="error" type="dispatcher">/WEB-INF/jsp/errors/500.jsp</result>
+        </action>
+        <action name="form_upload" class="mx.blogspot.webxico.action.PersonaAction" method="form_upload">
+            <result name="success" type="dispatcher">/WEB-INF/jsp/personas/upload.jsp</result>
+        </action>
+        <action name="upload" class="mx.blogspot.webxico.action.PersonaAction" method="upload">
+            <interceptor-ref name="defaultStack"/>
+            <interceptor-ref name="fileUpload">
+                <param name="allowedTypes">image/png,image/jpeg,image/pjpeg</param>
+                <param name="maximumSize">2097152</param>
+            </interceptor-ref> 
+            <result name="success" type="chain">save</result>
+            <result name="input" type="redirectAction">form_upload</result>
+            <result name="error">/WEB-INF/jsp/errors/500.jsp</result>
+        </action>
+    </package>
+</struts>
