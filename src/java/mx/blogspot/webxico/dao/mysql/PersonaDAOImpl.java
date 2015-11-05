@@ -79,7 +79,7 @@ public class PersonaDAOImpl implements PersonaDAO {
         Connection conn = null;
         try {
             conn = MySQLDAOFactory.createConnection();
-            String q = "SELECT * FROM personas ORDER BY nombre, ap_paterno, ap_materno";
+            String q = "SELECT * FROM personas ORDER BY nombre, ap_paterno, ap_materno WHERE activo = 1";
 
             Statement st = conn.createStatement();
 
@@ -163,7 +163,7 @@ public class PersonaDAOImpl implements PersonaDAO {
     public void remove(int id) {
         Connection conn = MySQLDAOFactory.createConnection();
         try {
-            String q = " DELETE FROM personas WHERE cve_persona = ?";
+            String q = " UPDATE personas SET activo = 0 WHERE cve_persona = ?";
 
             PreparedStatement ps = conn.prepareStatement(q);
             ps.setInt(1, id);
