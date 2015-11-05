@@ -7,6 +7,7 @@ package mx.blogspot.webxico.dao.mysql;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
+import mx.blogspot.webxico.dao.AlumnoDAO;
 import mx.blogspot.webxico.dao.DAOFactory;
 import mx.blogspot.webxico.dao.PersonaDAO;
 
@@ -34,6 +35,11 @@ public class MySQLDAOFactory extends DAOFactory {
     @Override
     public PersonaDAO getPersonaDAO() {
         return new PersonaDAOImpl();
+    }
+
+    @Override
+    public AlumnoDAO getAlumnoDAO() {
+        return new AlumnoDAOImpl();
     }
 
 }
