@@ -79,7 +79,7 @@ public class PersonaDAOImpl implements PersonaDAO {
         Connection conn = null;
         try {
             conn = MySQLDAOFactory.createConnection();
-            String q = "SELECT * FROM personas ORDER BY nombre, ap_paterno, ap_materno WHERE activo = 1";
+            String q = "SELECT * FROM personas WHERE activo = 1 ORDER BY nombre, ap_paterno, ap_materno";
 
             Statement st = conn.createStatement();
 
