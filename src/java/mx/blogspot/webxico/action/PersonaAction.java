@@ -46,7 +46,6 @@ public class PersonaAction extends ActionSupport implements ModelDriven, Servlet
 
     public String saveOrUpdate() throws Exception {
         boolean grabo = personaDAO.saveOrUpdate(persona);
-        System.out.println("Desde PersonaAction, grabo =" + grabo);
         if (!grabo) {
             addActionMessage("[ERROR] persona no guardada.");
             return ERROR;
@@ -120,7 +119,6 @@ public class PersonaAction extends ActionSupport implements ModelDriven, Servlet
             persona.setFecha_reg(tmp.getFecha_reg());
             persona.setFecha_mod(tmp.getFecha_mod());
             persona.setActivo(tmp.isActivo());
-            System.out.println("Entre a String upload(), " + persona);
 
             String path = "/img/personas";
             String fileName = String.valueOf(persona.getCve_persona()) + this.fileUploadFileName.subSequence(this.fileUploadFileName.lastIndexOf("."), fileUploadFileName.length());

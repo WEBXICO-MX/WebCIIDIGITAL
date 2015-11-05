@@ -28,7 +28,6 @@ public class PersonaDAOImpl implements PersonaDAO {
         try {
             if (persona.getCve_persona() != 0) {
                 q = "UPDATE personas SET nombre = ?, ap_paterno = ?, ap_materno = ?, sexo = ?, fecha_nacimiento = ?,foto = ?,fecha_mod = ?,activo = ? WHERE cve_persona = ?";
-                System.out.println(q+","+persona);
                 ps = conn.prepareStatement(q);
                 ps.setString(1, persona.getNombre());
                 ps.setString(2, persona.getAp_paterno());
