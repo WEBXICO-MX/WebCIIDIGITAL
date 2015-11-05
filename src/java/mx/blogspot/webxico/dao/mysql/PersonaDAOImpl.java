@@ -93,6 +93,7 @@ public class PersonaDAOImpl implements PersonaDAO {
                 p.setAp_materno(rs.getString("ap_materno"));
                 p.setSexo(rs.getString("sexo"));
                 p.setFecha_nacimiento(rs.getDate("fecha_nacimiento"));
+                p.setFoto(rs.getString("foto"));
                 p.setFecha_reg(rs.getDate("fecha_reg"));
                 p.setFecha_mod(rs.getDate("fecha_mod"));
                 p.setActivo(rs.getBoolean("activo"));
@@ -137,6 +138,7 @@ public class PersonaDAOImpl implements PersonaDAO {
                 persona.setAp_materno(rs.getString("ap_materno"));
                 persona.setSexo(rs.getString("sexo"));
                 persona.setFecha_nacimiento(rs.getDate("fecha_nacimiento"));
+                persona.setFoto(rs.getString("foto"));
                 persona.setFecha_reg(rs.getDate("fecha_reg"));
                 persona.setFecha_mod(rs.getDate("fecha_mod"));
                 persona.setActivo(rs.getBoolean("activo"));
