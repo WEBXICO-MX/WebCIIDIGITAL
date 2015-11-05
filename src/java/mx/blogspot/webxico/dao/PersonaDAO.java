@@ -14,7 +14,7 @@ public interface PersonaDAO {
 
     public List<Persona> findAll();
 
-    public Persona getById(int id);
+    public Persona findById(int id);
 
     public void remove(int id);
 
