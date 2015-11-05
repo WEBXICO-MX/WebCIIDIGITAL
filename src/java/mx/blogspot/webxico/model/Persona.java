@@ -10,16 +10,16 @@ import java.util.Date;
 
 public class Persona implements Serializable {
 
-    private int cve_persona;
-    private String nombre;
-    private String ap_paterno;
-    private String ap_materno;
-    private String sexo;
-    private Date fecha_nacimiento;
-    private String foto;
-    private Date fecha_reg;
-    private Date fecha_mod;
-    private boolean activo;
+    protected int cve_persona;
+    protected String nombre;
+    protected String ap_paterno;
+    protected String ap_materno;
+    protected String sexo;
+    protected Date fecha_nacimiento;
+    protected String foto;
+    protected Date fecha_reg;
+    protected Date fecha_mod;
+    protected boolean activo;
 
     public Persona() {
         this.cve_persona = 0;
