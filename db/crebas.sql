@@ -1,6 +1,6 @@
 /*==============================================================*/
 /* DBMS name:      MySQL 5.0                                    */
-/* Created on:     04/11/2015 14:29:00                          */
+/* Created on:     05/11/2015 10:52:02                          */
 /*==============================================================*/
 
 
@@ -190,9 +190,7 @@ drop table if exists TIPOS_MEDIOS_COMUNICACION;
 create table ALUMNOS
 (
    CVE_PERSONA          int not null,
-   FECHA_REG            datetime,
-   FECHA_MOD            datetime,
-   ACTIVO               bit,
+   MATRICULA            varchar(10),
    primary key (CVE_PERSONA)
 );
 
@@ -605,9 +603,7 @@ create index INDEX_1 on INSCRIPCIONES
 create table INSTRUCTORES
 (
    CVE_PERSONA          int not null,
-   ACTIVO               bit,
-   FECHA_REG            datetime,
-   FECHA_MOD            datetime,
+   CEDULA_PROFESIONAL   varchar(20),
    primary key (CVE_PERSONA)
 );
 
