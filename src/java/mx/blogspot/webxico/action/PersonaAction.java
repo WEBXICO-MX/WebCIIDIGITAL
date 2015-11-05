@@ -62,7 +62,7 @@ public class PersonaAction extends ActionSupport implements ModelDriven, Servlet
     public String show() throws Exception {
         // Debido a que implemento ModelDriven, el parametro llamado cve_persona que envio desde base/personas/index llamada al setter setCve_persona() del objeto persona
         int id = persona.getCve_persona();
-        Persona tmp = personaDAO.getById(id);
+        Persona tmp = personaDAO.findById(id);
 
         persona.setNombre(tmp.getNombre());
         persona.setAp_paterno(tmp.getAp_paterno());
@@ -86,7 +86,7 @@ public class PersonaAction extends ActionSupport implements ModelDriven, Servlet
     public String form_upload() throws Exception {
         // Debido a que implemento ModelDriven, el parametro llamado cve_persona que envio desde base/personas/index llamada al setter setCve_persona() del objeto persona
         int id = persona.getCve_persona();
-        Persona tmp = personaDAO.getById(id);
+        Persona tmp = personaDAO.findById(id);
 
         persona.setNombre(tmp.getNombre());
         persona.setAp_paterno(tmp.getAp_paterno());
@@ -102,7 +102,7 @@ public class PersonaAction extends ActionSupport implements ModelDriven, Servlet
     public String upload() throws Exception {
         try {
             int id = persona.getCve_persona();
-            Persona tmp = personaDAO.getById(id);
+            Persona tmp = personaDAO.findById(id);
 
             persona.setNombre(tmp.getNombre());
             persona.setAp_paterno(tmp.getAp_paterno());
