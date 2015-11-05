@@ -5,6 +5,7 @@
 --%>
 
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@taglib uri="/struts-tags" prefix="s"%>
 <!DOCTYPE html>
 <html lang="es">
     <head>
@@ -13,5 +14,6 @@
     </head>
     <body>
         <h1>Error 500</h1>
+        <s:debug />
     </body>
 </html>
