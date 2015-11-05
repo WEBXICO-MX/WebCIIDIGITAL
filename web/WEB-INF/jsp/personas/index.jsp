@@ -45,17 +45,16 @@
                                         <td><s:property value="fecha_reg" /></td>
                                         <td><s:if test="activo"><span class="glyphicon glyphicon-ok-circle"></span></s:if><s:else><span class="glyphicon glyphicon-remove-circle"></span></s:else></td>
                                         <td>
-                                            <s:if test="foto.equalsIgnoreCase('NULL') || foto.equalsIgnoreCase('')">
+                                            <s:if test="foto == null">
                                                 <s:url id="form_upload_url" action="form_upload" namespace="/base/personas" var="form_upload_url"><s:param name="cve_persona" value="%{cve_persona}"></s:param></s:url>
-                                                <a href="javascript:void(0);" data-toggle="modal" data-remote="<s:property value="#form_upload_url"/>" data-target="#mUploadFile" class="btn btn-success"><span class="glyphicon glyphicon-picture"></span> Subir foto</a>
+                                                <a href="javascript:void(0);" data-toggle="modal" data-remote="<s:property value="#form_upload_url"/>" data-target="#mUploadFile" class="btn btn-success"><span class="glyphicon glyphicon-cloud-upload"></span> Subir foto</a>
                                             </s:if>
                                             <s:else>
-                                                <s:url id="foto_url" namespace="" action="viewActividadUniversitariaIMG" var="imgWebURL"><s:param name="id" value="%{id}"></s:param><s:param name="num" value="1"></s:param></s:url>
-                                                <span class="fa fa-file-image-o" data-toggle="popover" data-title="<s:property value="nombre"/>" data-content="<img src='&tpm=<%= System.currentTimeMillis() / 1000L%>' alt='<s:property value="nombre"/>' class='img-responsive'/>"></span>
+                                                <span class="glyphicon glyphicon-picture" data-toggle="popover" data-title="<s:property value="nombre_completo"/>" data-content="<img src='${pageContext.request.contextPath}<s:property value="foto"/>' alt='<s:property value="nombre_completo"/>' class='img-responsive'/>"></span>
                                                 <br/>
                                                 <br/>
                                                 <s:url id="form_upload_url" action="form_upload" namespace="/base/personas" var="form_upload_url"><s:param name="cve_persona" value="%{cve_persona}"></s:param></s:url>
-                                                <a href="javascript:void(0);" data-toggle="modal" data-remote="<s:property value="#form_upload_url"/>" data-target="#mUploadFile">Cambiar foto</a>
+                                                <a href="javascript:void(0);" data-toggle="modal" data-remote="<s:property value="#form_upload_url"/>" data-target="#mUploadFile" class="btn btn-success"><span class="glyphicon glyphicon-refresh"></span> <span class="glyphicon glyphicon-cloud-upload"></span> Cambiar foto</a>
                                             </s:else>
                                         </td>
                                         <td>
