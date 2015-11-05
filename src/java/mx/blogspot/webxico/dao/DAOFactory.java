@@ -13,6 +13,8 @@ public abstract class DAOFactory {
     public static final int MySQL = 1;
     
     public abstract PersonaDAO getPersonaDAO();
+    
+    public abstract AlumnoDAO getAlumnoDAO();
 
     public static DAOFactory getDAOFactory(
             int whichFactory) {
