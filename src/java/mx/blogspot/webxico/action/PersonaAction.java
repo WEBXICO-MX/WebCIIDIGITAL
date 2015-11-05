@@ -101,13 +101,6 @@ public class PersonaAction extends ActionSupport implements ModelDriven, Servlet
 
     public String upload() throws Exception {
         try {
-            //Debido a que implemento "ModelDriven" el parametro "id" es asignado a la propieda "id" del objeto actividad y el parametro "num" es asigando a la propidad "num" que se encuentra en este action, por lo que el
-            //objeto HttpServletRequest ya no es requerido para obtener los valores de estos parametros, es un proceso automático que realiza struts2 quizas usando inyección de dependecias.
-
-            //ANTES:
-            //HttpServletRequest request = (HttpServletRequest) ActionContext.getContext().get(ServletActionContext.HTTP_REQUEST);
-            //int num = Integer.parseInt(request.getParameter("num"));
-            //actividad = actividadDAO.findById(Integer.parseInt(request.getParameter("id")));
             int id = persona.getCve_persona();
             Persona tmp = personaDAO.getById(id);
 
@@ -127,7 +120,7 @@ public class PersonaAction extends ActionSupport implements ModelDriven, Servlet
 
             File fileToCreate = new File(filePath, fileName);
             FileUtils.copyFile(this.fileUpload, fileToCreate);
-            addActionMessage(tmp + " subida con éxito.");
+            addActionMessage(fileName + " subida con éxito.");
         } catch (Exception e) {
             addActionError(e.getMessage());
 
@@ -143,6 +136,10 @@ public class PersonaAction extends ActionSupport implements ModelDriven, Servlet
 
     public Persona getPersona() {
         return persona;
+    }
+
+    public void setPersona(Persona persona) {
+        this.persona = persona;
     }
     
     public List<Persona> getPersonas() {
