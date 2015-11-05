@@ -119,7 +119,7 @@ public class PersonaDAOImpl implements PersonaDAO {
     }
 
     @Override
-    public Persona getById(int id) {
+    public Persona findById(int id) {
         Persona persona = new Persona();
         Connection conn = MySQLDAOFactory.createConnection();
         try {
